@@ -13,15 +13,25 @@
 		<servlet-name>HelloWorldServlet</servlet-name>
 		<servlet-class>com.virtualpairprogrammers.servlets.HelloWorldServlet</servlet-class>
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>ViewMenuServlet</servlet-name>
 		<servlet-class>com.virtualpairprogrammers.servlets.ViewMenuServlet</servlet-class>
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>MenuSearchServlet</servlet-name>
 		<servlet-class>com.virtualpairprogrammers.servlets.MenuSearchServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>OrderServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.OrderServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>OrderReceivedServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.OrderReceivedServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
@@ -33,9 +43,19 @@
 		<servlet-name>ViewMenuServlet</servlet-name>
 		<url-pattern></url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>MenuSearchServlet</servlet-name>
 		<url-pattern>/searchResults.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>OrderServlet</servlet-name>
+		<url-pattern>/order.html</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>OrderReceivedServlet</servlet-name>
+		<url-pattern>/orderReceived.html</url-pattern>
 	</servlet-mapping>
 </web-app> 
