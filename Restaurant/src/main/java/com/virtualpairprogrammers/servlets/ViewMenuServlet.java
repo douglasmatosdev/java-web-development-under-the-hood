@@ -14,7 +14,7 @@ import com.virtualpairprogrammers.data.MenuDao;
 import com.virtualpairprogrammers.data.MenuDaoFactory;
 import com.virtualpairprogrammers.domain.MenuItem;
 
-@WebServlet("")
+//@WebServlet("")
 public class ViewMenuServlet extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
