@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.virtualpairprogrammers.data.MenuDataService;
 import com.virtualpairprogrammers.domain.MenuItem;
 
-public class MenuServlet extends HttpServlet {
+public class ViewMenuServlet extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		PrintWriter out = response.getWriter();
@@ -27,6 +27,7 @@ public class MenuServlet extends HttpServlet {
 			out.println("<li>" + menuItem.toString() + "</li>");
 		}
 		out.println("</ul>");
+		out.println("<a href='searchResults.html?searchTerm=chicken'> View all of out chicken dishes</a>");
 		out.println("</body></html>");
 		out.close();
 	}

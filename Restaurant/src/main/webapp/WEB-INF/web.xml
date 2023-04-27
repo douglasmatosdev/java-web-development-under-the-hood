@@ -15,8 +15,8 @@
 	</servlet>
 	
 	<servlet>
-		<servlet-name>MenuServlet</servlet-name>
-		<servlet-class>com.virtualpairprogrammers.servlets.MenuServlet</servlet-class>
+		<servlet-name>ViewMenuServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.ViewMenuServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
@@ -30,7 +30,7 @@
 	</servlet-mapping>
 
 	<servlet-mapping>
-		<servlet-name>MenuServlet</servlet-name>
+		<servlet-name>ViewMenuServlet</servlet-name>
 		<url-pattern></url-pattern>
 	</servlet-mapping>
 	
