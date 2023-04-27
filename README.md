@@ -27,3 +27,22 @@ Rodando o Tomcat
 ```bash
 sh ~/Downloads/apache-tomcat-8.5.88/bin/shutdown.sh
 ```
+
+## Servlet Security
+```txt
+Authentication                                   ______________
+                                                /              \
+    Please log in:                              | sally: user  |
+              ____________                      | david: user  |
+    Username |____________|     <------------>  | matt : admin |
+    Password |____________|                     \______________/
+                                                
+
+Authorization
+            |_Guest: /
+            |_User : /order.html
+            |        /thankYou.html
+            |
+            |_Admin: /kitchen.html
+                        /accounts.html
+```
