@@ -48,3 +48,8 @@ Authorization
             |_Admin: /kitchen.html
                         /accounts.html
 ```
+
+## Authorization Annotations
+```java
+@ServletSecurity(@HttpConstraint(rolesAllowed={"role1", "role2"}))
+```
