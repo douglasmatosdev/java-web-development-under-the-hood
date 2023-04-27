@@ -9,66 +9,6 @@
         The menu and online ordering system for Ricky's Restaurant
     </description>
 
-	<servlet>
-		<servlet-name>HelloWorldServlet</servlet-name>
-		<servlet-class>com.virtualpairprogrammers.servlets.HelloWorldServlet</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>ViewMenuServlet</servlet-name>
-		<servlet-class>com.virtualpairprogrammers.servlets.ViewMenuServlet</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>MenuSearchServlet</servlet-name>
-		<servlet-class>com.virtualpairprogrammers.servlets.MenuSearchServlet</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>OrderServlet</servlet-name>
-		<servlet-class>com.virtualpairprogrammers.servlets.OrderServlet</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>OrderReceivedServlet</servlet-name>
-		<servlet-class>com.virtualpairprogrammers.servlets.OrderReceivedServlet</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>ThankYouServlet</servlet-name>
-		<servlet-class>com.virtualpairprogrammers.servlets.ThankYouServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>HelloWorldServlet</servlet-name>
-		<url-pattern>/hello.html</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>ViewMenuServlet</servlet-name>
-		<url-pattern></url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>MenuSearchServlet</servlet-name>
-		<url-pattern>/searchResults.html</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>OrderServlet</servlet-name>
-		<url-pattern>/order.html</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>OrderReceivedServlet</servlet-name>
-		<url-pattern>/orderReceived.html</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>ThankYouServlet</servlet-name>
-		<url-pattern>/thankYou.html</url-pattern>
-	</servlet-mapping>
-
 	<session-config>
 		<session-timeout>120</session-timeout>
 	</session-config>
@@ -111,26 +51,5 @@
 			<form-error-page>/failed-login.html</form-error-page>
 		</form-login-config>
 	</login-config>
+
 </web-app> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
