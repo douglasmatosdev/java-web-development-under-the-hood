@@ -8,6 +8,26 @@
     <description>
         The menu and online ordering system for Ricky's Restaurant
     </description>
+    
+    <servlet>
+    	<servlet-name>HelloWorldServlet</servlet-name>
+    	<servlet-class>com.virtualpairprogrammers.servlets.HelloWorldServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+    	<servlet-name>HelloWorldServlet</servlet-name>
+    	<url-pattern>/hello.html</url-pattern>
+    </servlet-mapping>
+
+ <servlet>
+    	<servlet-name>MenuServlet</servlet-name>
+    	<servlet-class>com.virtualpairprogrammers.servlets.MenuServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+    	<servlet-name>MenuServlet</servlet-name>
+    	<url-pattern></url-pattern>
+    </servlet-mapping>
 
 
 </web-app> 
