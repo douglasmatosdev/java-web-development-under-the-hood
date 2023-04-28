@@ -1,7 +1,6 @@
 package com.virtualpairprogrammers.servlets;
 
 import java.io.IOException;
-
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -21,17 +20,15 @@ import com.virtualpairprogrammers.domain.MenuItem;
 public class ViewMenuServlet extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		PrintWriter out = response.getWriter();
-		response.setContentType("text/html");
-
+		
 		MenuDao menuDao = MenuDaoFactory.getMenuDao();
 		List<MenuItem> menuItems = menuDao.getFullMenu();
-
+		
 		request.setAttribute("menuItems", menuItems);
-
+		
 		ServletContext context = getServletContext();
-		RequestDispatcher dispatcher = context.getRequestDispatcher("/menu.jsp");
-		dispatcher.forward(request, response);
+		RequestDispatcher dispatch = context.getRequestDispatcher("/menu.jsp");
+		dispatch.forward(request, response);
 	}
-
+	
 }

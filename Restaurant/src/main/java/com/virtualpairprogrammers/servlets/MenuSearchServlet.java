@@ -20,15 +20,15 @@ import com.virtualpairprogrammers.domain.MenuItem;
 public class MenuSearchServlet extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-		String searchTerm = request.getParameter("searchTerm");
+		
+		String searchTerm = request.getParameter("searchTerm");		
 		MenuDao menuDao = MenuDaoFactory.getMenuDao();
 		List<MenuItem> menuItems = menuDao.find(searchTerm);
 		
 		request.setAttribute("menuItems", menuItems);
 		
 		ServletContext context = getServletContext();
-		RequestDispatcher dispatcher = context.getRequestDispatcher("/searchResults.jsp");
-		dispatcher.forward(request, response);
+		RequestDispatcher dispatch = context.getRequestDispatcher("/searchResults.jsp");
+		dispatch.forward(request, response);	
 	}
 }

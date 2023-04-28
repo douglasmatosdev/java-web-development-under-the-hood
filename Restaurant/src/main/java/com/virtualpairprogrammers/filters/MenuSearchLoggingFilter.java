@@ -10,26 +10,25 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter(value={"/searchResults.html"})
+@WebFilter(value={"/searchResults.html","/anotherUrl.html"})
 public class MenuSearchLoggingFilter implements Filter {
 
 	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-	
+	public void destroy() {
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+
 		String searchTerm = request.getParameter("searchTerm");
 		System.out.println("User searched for : " + searchTerm);
-
+		
 		chain.doFilter(request, response);
 	}
 
 	@Override
-	public void destroy() {
-	
+	public void init(FilterConfig arg0) throws ServletException {
 	}
 
 }

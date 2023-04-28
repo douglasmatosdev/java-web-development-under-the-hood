@@ -11,31 +11,30 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-@WebFilter(value={"/searchResults.html"})
+@WebFilter("/searchResults.html")
 public class MenuSearchCorrectionFilter implements Filter {
 
 	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-
+	public void destroy() {
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		
 		String searchTerm = request.getParameter("searchTerm");
 		if (searchTerm.toLowerCase().equals("chook")) {
-			MenuSearchCorrectionRequestWrapper wrapper = new MenuSearchCorrectionRequestWrapper(
-					(HttpServletRequest) request);
+			MenuSearchCorrectionRequestWrapper wrapper = new MenuSearchCorrectionRequestWrapper((HttpServletRequest)request);
 			wrapper.setNewSearchTerm("chicken");
 			chain.doFilter(wrapper, response);
-		} else {
+		}
+		else {
 			chain.doFilter(request, response);
 		}
 	}
 
 	@Override
-	public void destroy() {
-
+	public void init(FilterConfig arg0) throws ServletException {
 	}
 
 }

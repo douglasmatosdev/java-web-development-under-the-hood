@@ -18,8 +18,8 @@ import com.virtualpairprogrammers.domain.Order;
 public class MenuDao {
 
 	public MenuDao() {
-		DatabaseBootstrap bootstrap = new DatabaseBootstrap();
-		bootstrap.initializeDatabase();
+//		DatabaseBootstrap bootstrap = new DatabaseBootstrap();
+//		bootstrap.initializeDatabase();
 	}
 
 	private List<MenuItem> buildMenu(ResultSet results) throws SQLException {

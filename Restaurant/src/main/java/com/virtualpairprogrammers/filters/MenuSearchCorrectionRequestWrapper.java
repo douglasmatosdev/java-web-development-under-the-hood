@@ -6,11 +6,11 @@ import javax.servlet.http.HttpServletRequestWrapper;
 public class MenuSearchCorrectionRequestWrapper extends HttpServletRequestWrapper {
 
 	private String newSearchTerm;
-
+	
 	public MenuSearchCorrectionRequestWrapper(HttpServletRequest request) {
 		super(request);
 	}
-
+	
 	public void setNewSearchTerm(String newSearchTerm) {
 		this.newSearchTerm = newSearchTerm;
 	}
@@ -19,8 +19,10 @@ public class MenuSearchCorrectionRequestWrapper extends HttpServletRequestWrappe
 	public String getParameter(String key) {
 		if (key.equals("searchTerm")) {
 			return newSearchTerm;
-		} else {
+		}
+		else {
 			return super.getParameter(key);
 		}
 	}
+	
 }

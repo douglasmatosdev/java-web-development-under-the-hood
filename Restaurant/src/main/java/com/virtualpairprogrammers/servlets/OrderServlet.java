@@ -19,18 +19,19 @@ import com.virtualpairprogrammers.data.MenuDaoFactory;
 import com.virtualpairprogrammers.domain.MenuItem;
 
 @WebServlet("/order.html")
-@ServletSecurity(@HttpConstraint(rolesAllowed = { "user" }))
+@ServletSecurity(@HttpConstraint(rolesAllowed={"user"}))
 public class OrderServlet extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		
 		MenuDao menuDao = MenuDaoFactory.getMenuDao();
 		List<MenuItem> menuItems = menuDao.getFullMenu();
-
-
+		
 		request.setAttribute("menuItems", menuItems);
 		
 		ServletContext context = getServletContext();
-		RequestDispatcher dispatcher = context.getRequestDispatcher("/order.jsp");
-		dispatcher.forward(request, response);
+		RequestDispatcher dispatch = context.getRequestDispatcher("/order.jsp");
+		dispatch.forward(request, response);
+
 	}
 }
