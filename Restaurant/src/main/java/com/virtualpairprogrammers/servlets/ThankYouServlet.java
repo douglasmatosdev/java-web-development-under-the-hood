@@ -14,28 +14,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.virtualpairprogrammers.data.MenuDao;
+import com.virtualpairprogrammers.data.MenuDaoFactory;
+
 @WebServlet("/thankYou.html")
-@ServletSecurity(@HttpConstraint(rolesAllowed={"user"}))
+@ServletSecurity(@HttpConstraint(rolesAllowed = { "user" }))
 public class ThankYouServlet extends HttpServlet {
 
-	
-	public void doGet (HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		
-		
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
 		HttpSession session = request.getSession();
-		Double total = (Double) session.getAttribute("total");
-		
+		Long orderId = (Long) session.getAttribute("orderId");
+
+		MenuDao dao = MenuDaoFactory.getMenuDao();
+
+		Double total = dao.getOrderTotal(orderId);
+		String status = dao.getOrder(orderId).getStatus();
+
 		if (total == null) {
 			response.sendRedirect("/order.html");
 			return;
 		}
-		
+
 		request.setAttribute("total", total);
+		request.setAttribute("status", status);
+		request.setAttribute("id", orderId);
 		request.setAttribute("currency", "USD");
-		
+
 		ServletContext context = getServletContext();
 		RequestDispatcher dispatch = context.getRequestDispatcher("/thankYou.jsp");
 		dispatch.forward(request, response);
-		
+
 	}
 }
