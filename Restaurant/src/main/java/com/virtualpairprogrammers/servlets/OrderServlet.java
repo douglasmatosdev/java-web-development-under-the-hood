@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.HttpConstraint;
 import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
@@ -19,25 +22,15 @@ import com.virtualpairprogrammers.domain.MenuItem;
 @ServletSecurity(@HttpConstraint(rolesAllowed = { "user" }))
 public class OrderServlet extends HttpServlet {
 
-	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		PrintWriter out = response.getWriter();
-		response.setContentType("text/html");
-		out.println("<html><body><h1>Ricky's Restaurant</h1>");
-		out.println("<h2>Order your food</h2>");
-
-		out.println("<form action='orderReceived.html' method='POST' >");
-		out.println("<ul>");
-
+	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		MenuDao menuDao = MenuDaoFactory.getMenuDao();
 		List<MenuItem> menuItems = menuDao.getFullMenu();
 
-		for (MenuItem menuItem : menuItems) {
-			out.println("<li>" + menuItem + "<input type='text' name='item_" + menuItem.getId() + "' /> </li>");
-		}
 
-		out.println("</ul>");
-		out.println("<input type='submit' />");
-		out.println("</form></body></html>");
-		out.close();
+		request.setAttribute("menuItems", menuItems);
+		
+		ServletContext context = getServletContext();
+		RequestDispatcher dispatcher = context.getRequestDispatcher("/order.jsp");
+		dispatcher.forward(request, response);
 	}
 }
